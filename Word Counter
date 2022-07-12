@@ -1,0 +1,16 @@
+function wordcounter(word){
+    let count=1;
+    for(i=0;i<word.length;i++){
+        if(word[i]==' '){
+            count+=1;
+        }
+        else{
+            continue;
+        }
+    }
+    return count;
+}
+
+console.log(wordcounter("I like the way you code."));
+console.log(wordcounter("I love my country Bangladesh."));
+console.log(wordcounter("I love my family and parents."));
