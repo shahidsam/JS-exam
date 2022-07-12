@@ -1,0 +1,52 @@
+function charremove(a){
+    // a=a.toLowerCase();
+    let counter=0;
+    let newstr= new Array;
+    
+    console.log("New str:"+a);
+    for(i=0;i<a.length;i++){  //Talking all the char into an array
+        newstr[i]=a[i];
+    }
+    for(i=0;i<newstr.length;i++){
+        if(newstr[i]=='a' || newstr[i]=='A'){ //checking every element of the array consist that char
+            counter++;                        //Take a counter for later to print the string
+            for(j=i;j<newstr.length;j++){     
+                newstr[j]=newstr[j+1];        //shift the item one step back
+            }
+            i--;                              //reduce i value, to start the loop from previous position
+            newstr.pop();                     //remove the last element of the array where 'a'/'A' exist            
+        }
+    }
+    for(i=0;i<newstr.length;i++){             //same as A
+        if(newstr[i]=='c' || newstr[i]=='C'){
+            counter++;
+            for(j=i;j<newstr.length;j++){
+                newstr[j]=newstr[j+1];
+            }
+            i--;
+            newstr.pop();
+        }
+    }
+    for(i=0;i<newstr.length;i++){               //same as A
+        if(newstr[i]=='z' || newstr[i]=='Z'){
+            counter++;
+            for(j=i;j<newstr.length;j++){
+                newstr[j]=newstr[j+1];   
+            }
+            i--;
+            newstr.pop();
+        }
+    }
+    let finalstr='';                            //empty string
+
+    for(l=0;l<(a.length-counter);l++){
+        finalstr=finalstr.concat(newstr[l]);    //value taking from array to string for final output
+    }
+    console.log("Main output: "+finalstr);      //print final output
+}
+charremove("Zimbabwe");
+charremove("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+charremove("Airplane");
+charremove("certificate");
+charremove("Zebra");
+charremove("If life gives you another chance, then take it!");
